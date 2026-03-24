@@ -13,7 +13,7 @@ const btnConfig = {
     fill: 0xffffff,
     fontSize: 20,
     fontFamily: 'Segoe UI, Arial, sans-serif',
-    fontWeight: 'bold',
+    fontWeight: 'bold' as const,
   },
 };
 
@@ -36,7 +36,7 @@ export class UI {
     this.drawBg(bg, btnConfig.color);
     container.addChild(bg);
 
-    const label = new Text({ text, style: { ...btnConfig.textStyle } });
+    const label = new Text({ text, style: btnConfig.textStyle });
     label.anchor.set(0.5);
     label.position.set(btnConfig.width / 2, btnConfig.height / 2);
     container.addChild(label);
