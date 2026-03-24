@@ -22,14 +22,14 @@ export class StateManager {
 
 export class GrowingState implements GameState {
   enter() {
-    state.ui!.createButton('water', '💧 Water Plants', () => {
+    state.ui.createButton('water', '💧 Water Plants', () => {
       state.stateManager.transition(new RipeState());
     });
-    state.ui!.showButton('water');
+    state.ui.showButton('water');
   }
 
   exit() {
-    state.ui!.hideButton('water');
+    state.ui.hideButton('water');
   }
 }
 
@@ -57,13 +57,13 @@ export class RipeState implements GameState {
 
 export class DownloadableState implements GameState {
   enter() {
-    state.ui!.createButton('download', 'Download now!', () => {
+    state.ui.createButton('download', 'Download now!', () => {
       console.log('download clicked — redirect to store');
     });
-    state.ui!.showButton('download');
+    state.ui.showButton('download');
   }
 
   exit() {
-    state.ui!.hideButton('download');
+    state.ui.hideButton('download');
   }
 }

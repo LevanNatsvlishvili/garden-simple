@@ -1,11 +1,11 @@
 import type { Plant } from '@/assets/plant';
 import { StateManager } from '@/state/states';
-import type { UI } from '@/ui/ui';
+import { UI } from '@/ui/ui';
 
-const state = {
-  plants: [] as Plant[],
-  stateManager: new StateManager(),
-  ui: null as UI | null,
-};
+class GameStore {
+  readonly plants: Plant[] = [];
+  readonly stateManager: StateManager = new StateManager();
+  readonly ui: UI = new UI();
+}
 
-export default state;
+export default new GameStore();

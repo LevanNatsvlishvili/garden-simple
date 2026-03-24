@@ -2,7 +2,6 @@ import './style.css';
 import * as THREE from 'three';
 import { scene, camera, renderer } from '@/utils/renderer';
 import { pixiApp } from '@/ui/pixiApp';
-import { UI } from '@/ui/ui';
 import { setupScene } from '@/scene/setup';
 import { GrowingState } from '@/state/states';
 import state from '@/store/state';
@@ -12,7 +11,6 @@ const clock = new THREE.Clock();
 async function init() {
   await pixiApp.init();
 
-  state.ui = new UI();
   setupScene();
 
   state.stateManager.transition(new GrowingState());
@@ -22,7 +20,7 @@ async function init() {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
     pixiApp.resize();
-    state.ui?.layout();
+    state.ui.layout();
   });
 
   const tick = () => {
