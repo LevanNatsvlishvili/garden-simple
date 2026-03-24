@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { scene, camera, renderer } from '@/utils/renderer';
 import { pixiApp } from '@/ui/pixiApp';
 import { UI } from '@/ui/ui';
-import { SceneSetup } from '@/scene/setup';
+import { setupScene } from '@/scene/setup';
 import { GrowingState } from '@/state/states';
 import state from '@/store/state';
 
@@ -13,7 +13,7 @@ async function init() {
   await pixiApp.init();
 
   state.ui = new UI();
-  new SceneSetup().setup();
+  setupScene();
 
   state.stateManager.transition(new GrowingState());
 
